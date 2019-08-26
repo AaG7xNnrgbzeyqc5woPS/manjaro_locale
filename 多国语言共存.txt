@@ -1,0 +1,92 @@
+see:
+1, https://www.lulinux.com/archives/5209
+   Linux软件界面切换不同的语言，让多种语种共存
+2, https://wiki.manjaro.org/index.php?title=Locale
+   locale基础知识
+3, 已经熟悉如何设置manjaro为中文版。
+
+让manjaro多国语言共存
+效果：
+1) manjaro缺省语言是英语en_US.utf8， 以下几个命令可以帮助查看系统设置：echo $LANG, locale, locale -a
+2) 在主界面中可以同时打开不同国家的语言的界面，英文，中文，日语，俄语。不同的应用程序使用不同的语言
+
+操作方法(上)：
+ 操作系统级的语言配置
+1) 设置系统可用语言，
+   $sudo nano /etc/locale.gen
+   去掉你需要的使用的语言的注释符号"#", 作为例子，我注释了这三行： en_US.UTF-8， ja_JP.UTF-8，zh_CN.UTF-8 
+   然后使用命令生成配置: 
+   $sudo locale-gen
+2)设置系统缺省语言： 
+  $sudo localectl set-locale LANG=en_US.UTF-8 
+3) 重新启动系统
+  $sudo shutdown -r now
+4) 疑难解答
+  a) 如果一次重启还不够不够，可以再启动一次，我遇到过两次重启才生效的情况，很疑惑。
+  b) 如果上面的切换系统语言还是不能生效，比如，开始是中文系统，怎么也不能切换到英文系统，或者相反。总是遇到麻烦，
+     可以在第一步sudo nano /etc/locale.gen 编辑配置文件的时候，先把其他语言都注释掉，只保留 en_US.UTF-8，简化问题
+     然后做后面的， sudo locale-gen，sudo localectl set-locale LANG=en_US.UTF-8，最后重启。可以解决问题，我就遇到过，
+     最后再加其他中文，日文等等，就没有问题啦。可能是配置文件紊乱，或者系统的bug.
+ 
+操作方法(中)：
+ 建立两个脚本文件，shell脚本不熟悉可以去网上找教程
+ 1，建立 /usr/bin/ja 文件
+#!/bin/sh
+export LANG=ja_JP.utf-8
+echo "LANG=$LANG"
+echo "LANG=${LANG}"
+echo "SHELL ID=$$"
+echo "FILENAME=$0"
+echo "PARAM NUM=$#"
+echo "ALL PARAM=$@"
+"$@"
+
+ 2，将/usr/bin/ja设置为可执行文件
+   cd
+   cd /usr/bin/
+   sudo chmode +x ja
+   ls ja -al
+   
+ 3, 在命令行终端测试：
+   $ja gedit
+   应该出来日文版的gedit界面
+   
+  4，如法炮制 建立 和测试 /usr/bin/cn文件
+#!/bin/sh
+export LANG=zh_CN.UTF-8
+echo "LANG=$LANG"
+echo "LANG=${LANG}"
+echo "SHELL ID=$$"
+echo "FILENAME=$0"
+echo "PARAM NUM=$#"
+echo "ALL PARAM=$@"
+"$@"
+  5，$sudo chmode +x /usr/bin/cn
+  6, $cn gedit
+     应该出来gedit的中文界面
+   
+  7，最后，直接输入 gedit是英文版的界面
+
+操作方法（下）：
+  经过以上两步，已经可以同时打开多个不同语言的界面啦，大家自己发挥，为了方便，可以建立一个常用程序的快捷方式。
+  
+测试用到参数记录如下
+$LANG=ja_JP.UTF-8
+$LANG=en_US.utf8
+$LANG=zh_CN.utf8
+
+命令行可以测试多语言的命令：
+libreoffice
+gedit
+keepass
+ 
+查看当前系统本地化配置：
+$echo $LANG 
+$locale
+
+$locale -a
+C
+en_US.utf8
+ja_JP.utf8
+POSIX
+zh_CN.utf8
