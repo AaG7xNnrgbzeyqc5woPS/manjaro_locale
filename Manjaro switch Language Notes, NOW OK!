@@ -1,0 +1,67 @@
+I think I got it now. Here is the sequence that made it work (and the step I previously missed)
+
+    edit /etc/locale.gen to uncomment all three entries for French (fr_FR.UTF-8 UTF-8, fr_FR ISO-8859-1 , and fr_FR@euro ISO-8859-15) AND comment English - for some reason if you leave English there it won’t work, not sure why
+    run sudo locale-gen - although I ran this in the beginning, this needs to be run once English is commented in the previous step, otherwise it will keep English as the default even if you manually change the default
+    set the locale using sudo localectl set-locale LANG=fr_FR.UTF-8
+    reboot and everything is in French
+
+Again, the fact that it won’t set the default seems like a bug, not sure, but the steps above will force the system to take the new language.
+
+Thanks everybody for all the suggestions, they were very helpful
+
+https://forum.manjaro.org/t/switching-system-language/61807/10
+
+-----------------------------
+2019.2.13 
+
+1,Present situation
+  1) I install manjaro with us_utf8 over all system,only  timezone be locale,setting to +8 timezone,
+and I time is error ,need set bios time to UTC,NOW, date and time is alright.
+2) Then,I Open keepass,finding some randcode,because chinese code not deal right
+3)  keepass show chinese need two situation, fist is chinese system,locale manjaro
+4)   Now manjaro locale has some bug,I find many information in intenet,and I tied a lot.
+ Finally, the problem was solved.I can set locale to tw_utf8,keepass now show OK,show chinese is right
+but is Traditional Chinese character,I need switch to zh_utf8,I need swith to us_utf8 arbitrarily 
+
+2, for fix bug ,The right steps for switching language is:
+   1) Edit /etc/locale.gen ,only retain one langues only
+       2) run sudo locale-gen 
+    3) sudo localectl set-locale LANG=zh_CN.UTF-8
+  4)  reboot and everything is in chinese
+
+-------------------------------
+test1:
+1, comment us_utf8,tw_utf8,and other
+2,   uncomment all zh_CN character:
+zh_CN.GB18030 GB18030
+zh_CN.GBK GBK
+zh_CN.UTF-8 UTF-8
+zh_CN GB2312
+3) sudo locale-gen
+  now download character package and set it.
+4)   sudo localectl set-locale LANG=zh_CN.UTF-8
+5) reboot
+
+6) reboot ,Now $locale,$locale -a ,has some error,through Language is zh_CN.UTF-8,but system is cn_TW.UTF-8
+
+---------------------------------
+test2
+1) retry add en_uft8 to locale.gen,and redo it,
+2)  First comment all in locale.gen ,and uncomment zh_CN.UTF-8 UTF-8, en_US ISO-8859-1(sorry,my mind set it en_US.utf8. I used gedit editing it.
+3) run sudo locale-gen 
+4)  sudo localectl set-locale LANG=zh_CN.UTF-8
+5) reboot and everything is in chinese
+6) but I find en_us is ISO-8859-1.  try again!
+
+--------------------------------
+test3
+1)  comment all in locale.gen ,and uncomment zh_CN.UTF-8 UTF-8, en_US.utf8 with nano
+2) sudo locale-gen
+3) sudo localectl set-locale LANG=zh_CN.UTF-8
+4) reboot and everything is in chinese
+5)  Good job! now OK everything about locale
+)
+
+
+
+      
