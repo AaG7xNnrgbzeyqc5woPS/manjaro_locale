@@ -79,6 +79,14 @@ $LANG=zh_CN.utf8
 libreoffice
 gedit
 keepass
+
+中文界面
+$cn keepass
+$cn libreoffice
+$cn gedit
+ 
+$cn virutalbox 没有效果，还是英文的
+
  
 查看当前系统本地化配置：
 $echo $LANG 
