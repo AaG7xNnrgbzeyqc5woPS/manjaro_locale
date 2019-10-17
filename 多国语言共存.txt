@@ -71,6 +71,19 @@ echo "ALL PARAM=$@"
 1.3 操作方法（下）：
   经过以上两步，已经可以同时打开多个不同语言的界面啦，大家自己发挥，为了方便，可以建立一个常用程序的快捷方式。
  
+----------------------------------------------------
+note: 
+keepass used Chinese.
+
+ 打开Keepass
+Tools -> Options -> Interface -> 拉到最后
+
+把Force using system font (Unix only)的钩钩去掉即可
+
+然后选择 菜单栏view-change language ，选择中文简体，中文繁体。
+亲测，这两个比较满意，菜单基本汉化完成，有个小bug
+关键自己的保存的内容都能看到中文
+linux系统：manjaro
  
 //-----------------------------------------------
 2. test
