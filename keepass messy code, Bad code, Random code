@@ -1,0 +1,30 @@
+
+keepass messy code
+keepass Random code
+Bad code
+
+----------------------------------
+importment!!!
+--------------------------------------
+1 )  Tools -> Options -> Interface -> pull lastest
+2)  Force using system font (Unix only)  unchecked
+    note: unchecked, unchecked
+3) restart keepass 
+ note: manjaro locale must set to 
+  zh_TW.UTF-8 UTF-8
+  zh_CN.UTF-8 UTF-8
+
+-------------
+乱码
+
+-------------------------------------------------
+打开Keepass
+Tools -> Options -> Interface -> 拉到最后
+
+把Force using system font (Unix only)的钩钩去掉即可
+
+
+然后选择 菜单栏view-change language ，选择中文简体，中文繁体。
+亲测，这两个比较满意，菜单基本汉化完成，有个小bug
+关键自己的保存的内容都能看到中文
+linux系统：manjaro
