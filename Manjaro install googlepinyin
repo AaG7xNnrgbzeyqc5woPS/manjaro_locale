@@ -1,0 +1,32 @@
+参考：
+fcitx-googlepinyin
+https://blog.csdn.net/ppggxn/article/details/82263332
+https://blog.csdn.net/ning19941128/article/details/88763772
+
+谷歌拼音输入法安装
+1, 安装三个包：
+  sudo pacman -S fcitx-im fcitx-configtool fcitx-googlepinyin
+  注释：一路回车安装全部的程序包，都用缺省设置，没事不要标新立异，多装几个包没事。
+  
+2，设置配置文件
+nano ~/.xprofile
+加入一下内容
+export LC_ALL=zh_CN.UTF-8
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=“@im=fcitx”
+
+3，重新启动系统
+   reboot
+
+4，输入法的使用，
+  0）  登录进入桌面
+  1）  打开编辑器，注意要先打开一个编辑器，否则输入法不起作用
+  2） 右键点工具条上的键盘图标，有弹出菜单选择输入法/谷歌拼音。（注意：鼠标左右键都有作用的）
+  3） 打开编辑器试试是否可以输入中文。
+  4） ctrl+space切换中英文输入法，ctrl+shift切换各种输入法，体验下就知道啦
+  5) 鼠标左键点输入法，可以中英文切换。
+  6）鼠标右键点击去的菜单点配置，可以删除一些不要的输入法。干净点。
+  
+ 5，以上方法亲测有效
+ 
