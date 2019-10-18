@@ -29,4 +29,19 @@ export XMODIFIERS=“@im=fcitx”
   6）鼠标右键点击去的菜单点配置，可以删除一些不要的输入法。干净点。
   
  5，以上方法亲测有效
+ -----------------------------------
+ 重要更新：
+ 1，在英文环境下也可以使用 谷歌输入法，亲测有效，方法如下：
+ 2，设置配置文件
+nano ~/.xprofile
+加入一下内容
+#export LC_ALL=zh_CN.UTF-8 #可以不用设置英文环境，就这个改一下
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=“@im=fcitx”
+3， export LC_ALL=zh_CN.UTF-8 这句可以注释掉，我猜测也可以设置设置使用英文环境。
+  我是把这句注释掉，使用我的系统语言，我的系统语言是完全英文的, 可是使用 locale, locale -a，查看系统语言。
+  参考本资源库中文章： 《多国语言共存.txt》《Manjaro switch Language Notes, NOW OK!》等
+4，差别，谷歌拼音的菜单变成英文的，跟系统语言保持一直，但是真的可以输入中文，用法一样 ：）
+ 
  
