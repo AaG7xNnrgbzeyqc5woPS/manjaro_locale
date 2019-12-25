@@ -1,0 +1,24 @@
+# 展示Linux系统信息(装逼)
+
+#screenfetch
+creenfetch
+
+ ██████████████████  ████████     john@john-pc
+ ██████████████████  ████████     OS: Manjaro 18.1.4 Juhraya
+ ██████████████████  ████████     Kernel: x86_64 Linux 4.19.88-1-MANJARO
+ ██████████████████  ████████     Uptime: 45m
+ ████████            ████████     Packages: 1378
+ ████████  ████████  ████████     Shell: bash 5.0.11
+ ████████  ████████  ████████     Resolution: 1920x1080
+ ████████  ████████  ████████     DE: Xfce4
+ ████████  ████████  ████████     WM: Xfwm4
+ ████████  ████████  ████████     WM Theme: Adapta-Maia
+ ████████  ████████  ████████     GTK Theme: Adapta-Eta-Maia [GTK2]
+ ████████  ████████  ████████     Icon Theme: Papirus-Maia
+ ████████  ████████  ████████     Font: Noto Sans 10
+ ████████  ████████  ████████     Disk: 1.5T / 1.9T (80%)
+                                  CPU: Intel Core i7-6500U @ 2x 2.592GHz
+                                  GPU: llvmpipe (LLVM 9.0, 256 bits)
+                                  RAM: 1625MiB / 1992MiB
+[john@john-pc ~]$ 
+
